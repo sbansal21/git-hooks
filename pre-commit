@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# iterates through staged file extensions
+git diff --cached --name-status | while read status file; do
+	if [[ $file =~ ".yaml" ]]; then
+		echo "Please remove .yaml files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".yml" ]]; then
+		echo "Please remove .yml files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".config" ]]; then
+		echo "Please remove .config files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".conf" ]]; then
+		echo "Please remove .conf files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".properties" ]]; then
+		echo "Please remove .properties files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".prop" ]]; then
+		echo "Please remove .prop files before committing."
+		exit 1
+	fi
+	if [[ $file =~ ".hosts" ]]; then
+		echo "Please remove hosts files before committing."
+		exit 1
+	fi
+done
